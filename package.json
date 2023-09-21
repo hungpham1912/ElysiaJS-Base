@@ -7,11 +7,12 @@
   },
   "dependencies": {
     "@elysiajs/cors": "^0.6.0",
-    "elysia": "latest",
-    "postgres": "^3.3.5"
+    "@prisma/client": "5.3.1",
+    "elysia": "latest"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "prisma": "^5.3.1"
   },
   "module": "src/index.js"
 }

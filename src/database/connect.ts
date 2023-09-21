@@ -1,10 +1,9 @@
-import postgres from "postgres";
-
-const sql = postgres({
-  database: "demo-bun",
-  username: "phamthanhhung",
-  host: "localhost",
-  password: "hung1912",
-  port: 5432,
-});
-const [{ version }] = await sql`SELECT version()`;
+import { Prisma, PrismaClient } from "@prisma/client";
+import { DefaultArgs } from "@prisma/client/runtime/library";
+export class DataSource {
+  public static db: PrismaClient<
+    Prisma.PrismaClientOptions,
+    never,
+    DefaultArgs
+  >;
+}
