@@ -1,3 +1,4 @@
+import swagger from "@elysiajs/swagger";
 import { App } from "../../shared/models/base.model";
 import { ClientUserController } from "./users/users.controller";
 
