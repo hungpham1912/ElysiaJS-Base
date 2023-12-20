@@ -10,5 +10,11 @@ export class ClientUserController {
       () => this.userService.getAll(),
       apiTags("Client / Users")
     );
+
+    this.app.get(
+      "/users/:userId",
+      (ts) => this.userService.getOne(userId),
+      apiTags("Client / Users")
+    );
   }
 }

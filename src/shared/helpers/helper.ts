@@ -19,3 +19,10 @@ export const Res = (data: any, statusCode?: number) => {
     });
   }
 };
+
+export const Params = (data: any, statusCode?: number): ParameterDecorator => {
+  return data;
+};
+
+
+
