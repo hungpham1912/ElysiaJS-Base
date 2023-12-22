@@ -7,13 +7,14 @@
   },
   "dependencies": {
     "@elysiajs/cors": "latest",
+    "@elysiajs/jwt": "latest",
     "@elysiajs/swagger": "latest",
-    "@prisma/client": "5.3.1",
+    "@prisma/client": "latest",
     "elysia": "latest"
   },
   "devDependencies": {
     "bun-types": "latest",
-    "prisma": "^5.3.1"
+    "prisma": "latest"
   },
   "module": "src/index.js"
 }

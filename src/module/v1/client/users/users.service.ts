@@ -1,14 +1,12 @@
+import { BASE_ERROR } from "../../../../shared/common/errors";
+
 export class ClientUserService {
   async getAll() {
     try {
       console.log("getAll()");
       return "";
     } catch (error) {
-      console.log(
-        "🚀 ~ file: users.service.ts:8 ~ ClientUserService ~ getAll ~ error:",
-        error
-      );
-      throw error;
+      return BASE_ERROR.INTERNAL_SERVER_ERROR;
     }
   }
 

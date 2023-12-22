@@ -75,3 +75,7 @@ export enum HttpStatus {
   HTTP_VERSION_NOT_SUPPORTED = 505,
 }
 
+export type BasicResponse = {
+  statusCode: number;
+  error: string | object;
+};

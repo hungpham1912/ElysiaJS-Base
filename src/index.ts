@@ -2,7 +2,7 @@ import { Elysia } from "elysia";
 import { cors } from "@elysiajs/cors";
 import { CoreModule } from "./module/v1/core/core.module";
 import { ClientModule } from "./module/v1/client/client.module";
-import { DataSource } from "./database/connect";
+import { DataSource } from "./shared/common/database";
 import { PrismaClient } from "@prisma/client";
 import swagger from "@elysiajs/swagger";
 import { matching } from "./shared/common/transform";
