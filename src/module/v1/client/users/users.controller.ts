@@ -1,5 +1,5 @@
-import { apiTags } from "../../../shared/helpers/helper";
-import { App } from "../../../shared/models/base.model";
+import { apiTags } from "../../../../shared/common/swagger";
+import { App } from "../../../../shared/common/model";
 import { ClientUserService } from "./users.service";
 
 export class ClientUserController {
@@ -13,7 +13,7 @@ export class ClientUserController {
 
     this.app.get(
       "/users/:userId",
-      (ts) => this.userService.getOne(userId),
+      ({ params: { userId } }) => this.userService.getOne(userId),
       apiTags("Client / Users")
     );
   }

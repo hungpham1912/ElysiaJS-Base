@@ -1,4 +1,4 @@
-import { DataSource } from "../../../database/connect";
+import { DataSource } from "../../../../database/connect";
 
 export class UserService {
   async getAll() {

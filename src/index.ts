@@ -1,21 +1,30 @@
 import { Elysia } from "elysia";
 import { cors } from "@elysiajs/cors";
-import { CoreModule } from "./module/core/core.module";
-import { ClientModule } from "./module/client/client.module";
+import { CoreModule } from "./module/v1/core/core.module";
+import { ClientModule } from "./module/v1/client/client.module";
 import { DataSource } from "./database/connect";
 import { PrismaClient } from "@prisma/client";
 import swagger from "@elysiajs/swagger";
+import { matching } from "./shared/common/transform";
 async function bootstrap() {
   DataSource.db = new PrismaClient();
   const ts = new Elysia()
-    .onBeforeHandle(({ request, path, set }) => {
-      console.log(
-        `💥💥 ${request.method}~ ${
-          set.status
-        }   ~ ${path} ... ${new Date().getTime()}`
-      );
+    .use(
+      swagger({
+        path: "/api/docs",
+        documentation: {
+          info: {
+            title: "Elysia Documentation",
+            version: "1.0.0",
+          },
+        },
+        exclude: ["api/v1"],
+      })
+    )
+    .onAfterHandle(({ request, path, set }, response) => {
+      set.status = matching(response, request, path);
     })
-    .group("", (app) => {
+    .group("api/v1", (app) => {
       new CoreModule(app);
       new ClientModule(app);
       return app;

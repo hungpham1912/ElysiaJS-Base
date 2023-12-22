@@ -1,5 +1,5 @@
-import { apiTags } from "../../../shared/helpers/helper";
-import { App } from "../../../shared/models/base.model";
+import { apiTags } from "../../../../shared/common/swagger";
+import { App } from "../../../../shared/common/model";
 import { UserService } from "./users.service";
 
 export class UserController {
