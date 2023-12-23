@@ -8,6 +8,12 @@ export class ClientUserController {
   public userService = new ClientUserService();
   constructor(public app: App) {
     this.app
+      .use(
+        jwt({
+          name: "jwt",
+          secret: "xxxx",
+        })
+      )
       .get(
         "/users",
         () => this.userService.getAll(),
