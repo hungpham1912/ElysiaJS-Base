@@ -18,7 +18,7 @@ async function bootstrap() {
             version: "1.0.0",
           },
         },
-        exclude: ["api/v1"],
+        autoDarkMode: false,
       })
     )
     .onAfterHandle(({ request, path, set }, response) => {
