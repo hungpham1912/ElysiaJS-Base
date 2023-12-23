@@ -1,6 +1,12 @@
-export const apiOptions = (tags: string, body?: any) => {
+type ApiOption = {
+  tags: string;
+  beforeHandle?: Function;
+};
+
+export const apiOptions = (data: ApiOption): any => {
+  const { tags, beforeHandle } = data;
   return {
-    body,
     detail: { tags: [tags] },
+    beforeHandle,
   };
 };

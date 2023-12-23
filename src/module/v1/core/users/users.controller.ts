@@ -5,6 +5,8 @@ import { UserService } from "./users.service";
 export class UserController {
   userService: UserService = new UserService();
   constructor(public app: App) {
-    this.app.get("/users", () => this.userService.getAll());
+    this.app.get("/users", ({ params }) => this.userService.getAll(), {
+      beforeHandle: ({}) => {},
+    });
   }
 }

@@ -22,7 +22,12 @@ async function bootstrap() {
       })
     )
     .onAfterHandle(({ request, path, set }, response) => {
-      set.status = matching(response, request, path);
+      set.status = matching(response, request, request.url);
+      return response
+    })
+    .onError(({ code, error, request, set }) => {
+      set.status = matching(error, request, request.url);
+      return error;
     })
     .group("api/v1", (app) => {
       new CoreModule(app);

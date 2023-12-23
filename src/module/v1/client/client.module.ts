@@ -11,12 +11,6 @@ export class ClientModule {
           secret: "Fischl von Luftschloss Narfidort",
         })
       )
-      .onBeforeHandle(({ headers }) => {
-        console.log(
-          "🚀 ~ file: client.module.ts:15 ~ ClientModule ~ .onBeforeHandle ~ headers:",
-          headers
-        );
-      })
       .group("client", (app) => {
         new ClientUserController(app);
         return app;
