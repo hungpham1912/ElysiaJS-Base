@@ -6,6 +6,7 @@ import { DataSource } from "./shared/common/database";
 import { PrismaClient } from "@prisma/client";
 import swagger from "@elysiajs/swagger";
 import { matching } from "./shared/common/transform";
+import cookie from "@elysiajs/cookie";
 async function bootstrap() {
   DataSource.db = new PrismaClient();
   const ts = new Elysia()
@@ -23,9 +24,9 @@ async function bootstrap() {
     )
     .onAfterHandle(({ request, path, set }, response) => {
       set.status = matching(response, request, request.url);
-      return response
+      return response;
     })
-    .onError(({ code, error, request, set }) => {
+    .onError(({ error, request, set }) => {
       set.status = matching(error, request, request.url);
       return error;
     })

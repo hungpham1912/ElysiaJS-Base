@@ -6,6 +6,7 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
+    "@elysiajs/cookie": "latest",
     "@elysiajs/cors": "latest",
     "@elysiajs/jwt": "latest",
     "@elysiajs/swagger": "latest",

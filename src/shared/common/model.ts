@@ -1,5 +1,6 @@
 import { Elysia } from "elysia";
-
+import { Context } from "elysia";
+import { ElysiaInstance, TypedRoute } from "elysia/dist/types";
 export type App = Elysia<
   string,
   {
@@ -14,6 +15,11 @@ export type App = Elysia<
     };
   }
 >;
+
+export type ContextType = Context<TypedRoute, ElysiaInstance["store"]> &
+  ElysiaInstance["request"] & {
+    jwt: any;
+  };
 
 export enum HttpMethod {
   GET = "GET",

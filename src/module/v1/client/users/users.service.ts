@@ -1,4 +1,5 @@
 import { BASE_ERROR } from "../../../../shared/common/errors";
+import { ContextType } from "../../../../shared/common/model";
 
 export class ClientUserService {
   async getAll() {
@@ -10,7 +11,7 @@ export class ClientUserService {
     }
   }
 
-  async getOne(id: string) {
-    console.log("getOne()");
+  async profile(context: any) {
+    return context.user;
   }
 }
